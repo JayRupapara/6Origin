@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { ArrowRight, Code2, Sparkles, Users2, Linkedin, Mail, ChevronDown, X, Upload, User, MapPin } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ArrowRight, Code2, Sparkles, Users2, Linkedin, Mail, ChevronDown, X, Menu } from 'lucide-react';
 
 function App() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState({});
-  const [showCareerForm, setShowCareerForm] = useState(false);
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    resume: null,
-    position: ''
-  });
+
+  const [scrolled, setScrolled] = useState(false); // NEW
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: { clientX: any; clientY: any; }) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
@@ -24,6 +18,7 @@ function App() {
         const isInView = rect.top < window.innerHeight * 0.8;
         setIsVisible(prev => ({ ...prev, [index]: isInView }));
       });
+      setScrolled(window.scrollY > 30); // NEW
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -35,18 +30,34 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState<{ [key: number]: boolean }>({});
+  const [showCareerForm, setShowCareerForm] = useState(false);
+  const [formData, setFormData] = useState<{
+    username: string;
+    email: string;
+    resume: File | null;
+    position: string;
+  }>({
+    username: '',
+    email: '',
+    resume: null,
+    position: ''
+  });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setFormData(prev => ({ ...prev, resume: file }));
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files && e.target.files[0];
+    if (file) {
+      setFormData(prev => ({ ...prev, resume: file }));
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission here
     console.log('Form submitted:', formData);
@@ -58,14 +69,9 @@ function App() {
   const positions = [
     'Frontend Developer',
     'Backend Developer',
-    'Full Stack Developer',
-    'UI/UX Designer',
-    'Product Manager',
-    'DevOps Engineer',
-    'Data Scientist',
     'Mobile Developer',
-    'QA Engineer',
-    'Marketing Specialist'
+    'UI/UX Designer',
+    'LinkedIn Marketing Specialist'
   ];
 
   return (
@@ -83,8 +89,67 @@ function App() {
         <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-lime-400/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
+      {/* Mobile Dropdown Menu */}
+      {showMobileMenu && (
+        <div
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white/10 backdrop-blur-lg transition-transform duration-500 md:hidden"
+          style={{
+            animation: 'slideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+          }}
+          onClick={() => setShowMobileMenu(false)}
+        >
+          <nav className="flex flex-col gap-10 items-center w-full">
+            <a
+              href="#about"
+              className="text-2xl text-slate-100 font-medium hover:text-blue-400 transition-colors"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowMobileMenu(false);
+              }}
+            >
+              About
+            </a>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowCareerForm(true);
+                setShowMobileMenu(false);
+              }}
+              className="text-2xl text-slate-100 font-medium hover:text-blue-400 transition-colors"
+            >
+              Careers
+            </button>
+            <a
+              href="https://www.linkedin.com/company/6origin/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-2xl text-slate-100 font-medium hover:text-blue-400 transition-colors"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowMobileMenu(false);
+              }}
+            >
+              <Linkedin className="w-6 h-6" />
+              LinkedIn
+            </a>
+          </nav>
+        </div>
+      )}
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-sm bg-slate-950/80 border-b border-slate-800/50">
+      <nav
+        className={`
+          fixed z-50 transition-all duration-500 ease-in-out
+          border-b border-slate-800/50
+          left-1/2 -translate-x-1/2
+          ${scrolled
+            ? 'w-4/5 mt-6 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg'
+            : 'w-full mt-0 rounded-none bg-transparent'}
+        `}
+        style={{
+          top: scrolled ? '0.5rem' : '0',
+        }}
+      >
+
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <img 
@@ -112,6 +177,14 @@ function App() {
               <span>LinkedIn</span>
             </a>
           </div>
+          {/* Hamburger menu for mobile - toggles with X in the same spot */}
+          <button
+            className="md:hidden ml-4 text-slate-400 hover:text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            onClick={() => setShowMobileMenu((open) => !open)}
+            aria-label={showMobileMenu ? 'Close menu' : 'Open menu'}
+          >
+            {showMobileMenu ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
       </nav>
 
@@ -126,83 +199,23 @@ function App() {
             >
               <X className="w-5 h-5" />
             </button>
-            
             <h3 className="text-2xl font-light mb-6 text-center">Join Our Team</h3>
-            
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-sm font-light text-slate-300 mb-2">
-                  <User className="w-4 h-4 inline mr-2" />
-                  Username
-                </label>
-                <input
-                  type="text"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg focus:border-blue-400 focus:outline-none transition-colors text-white"
-                  placeholder="Enter your username"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-light text-slate-300 mb-2">
-                  <Mail className="w-4 h-4 inline mr-2" />
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg focus:border-blue-400 focus:outline-none transition-colors text-white"
-                  placeholder="Enter your email"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-light text-slate-300 mb-2">
-                  <Upload className="w-4 h-4 inline mr-2" />
-                  Resume
-                </label>
-                <input
-                  type="file"
-                  name="resume"
-                  onChange={handleFileChange}
-                  accept=".pdf,.doc,.docx"
-                  required
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg focus:border-blue-400 focus:outline-none transition-colors text-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-medium file:bg-blue-500 file:text-white hover:file:bg-blue-600"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-light text-slate-300 mb-2">
-                  <MapPin className="w-4 h-4 inline mr-2" />
-                  Position
-                </label>
-                <select
-                  name="position"
-                  value={formData.position}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg focus:border-blue-400 focus:outline-none transition-colors text-white"
-                >
-                  <option value="">Select a position</option>
-                  {positions.map((position, index) => (
-                    <option key={index} value={position}>{position}</option>
-                  ))}
-                </select>
-              </div>
-              
-              <button
-                type="submit"
-                className="w-full py-3 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg text-white font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
+            <div className="mb-4">
+              <p className="text-slate-300 text-center mb-2">We are having the following positions:</p>
+              <ul className="list-disc list-inside text-slate-200 mb-4">
+                {positions.map((position, index) => (
+                  <li key={index}>{position}</li>
+                ))}
+              </ul>
+              <p className="text-slate-400 text-center mb-4">Please send your resume or application to:</p>
+              <a
+                href="mailto:careers@6origin.com?subject=Job Application for 6Origin&body=Please attach your resume and mention the position you are applying for."
+                className="block text-blue-400 text-center underline hover:text-blue-300 mb-2"
               >
-                Submit Application
-              </button>
-            </form>
+                6originlabs@google.com
+              </a>
+              <p className="text-xs text-slate-500 text-center">(Click the email above to apply directly)</p>
+            </div>
           </div>
         </div>
       )}
