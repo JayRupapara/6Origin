@@ -203,23 +203,22 @@ function App() {
             <div className="mb-4">
               <p className="text-slate-300 text-center mb-2">We are having the following positions:</p>
               <ul className="list-disc list-inside text-slate-200 mb-4">
-                {positions.map((position, index) => (
-                  <li key={index}>{position}</li>
-                ))}
-              </ul>
-              <p className="text-slate-400 text-center mb-4">Please send your resume or application to:</p>
-              <a
-                href="mailto:careers@6origin.com?subject=Job Application for 6Origin&body=Please attach your resume and mention the position you are applying for."
-                className="block text-blue-400 text-center underline hover:text-blue-300 mb-2"
-              >
-                6originlabs@google.com
-              </a>
-              <p className="text-xs text-slate-500 text-center">(Click the email above to apply directly)</p>
+  {positions.map((position, index) => (
+    <li key={index}>{position}</li>
+  ))}
+</ul>
+<p className="text-slate-400 text-center mb-4">Please send your resume or application to:</p>
+<a
+  href="mailto:6originlabs@google.com"
+  className="block text-blue-400 text-center underline hover:text-blue-300 mb-2"
+>
+  6originlabs@google.com
+</a>
+<p className="text-xs text-slate-500 text-center">(Click the email above to apply directly)</p>
             </div>
           </div>
         </div>
       )}
-
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center px-6 relative">
         <div className="text-center max-w-4xl mx-auto">
