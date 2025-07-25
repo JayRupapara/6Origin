@@ -90,59 +90,59 @@ function App() {
       </div>
 
       {/* Floating Objects */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         {/* Top Left - Database Icon */}
-        <div className="absolute top-20 left-16 animate-float-slow opacity-20">
+        <div className="absolute top-20 left-4 md:left-16 animate-float-slow opacity-15 md:opacity-20">
           <div className="w-16 h-16 bg-gradient-to-br from-blue-400/20 to-cyan-300/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10">
             <Database className="w-8 h-8 text-blue-300" />
           </div>
         </div>
 
         {/* Top Right - Cloud Icon */}
-        <div className="absolute top-32 right-20 animate-float-medium opacity-25">
+        <div className="absolute top-32 right-4 md:right-20 animate-float-medium opacity-15 md:opacity-25">
           <div className="w-14 h-14 bg-gradient-to-br from-cyan-400/20 to-lime-300/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/10">
             <Cloud className="w-7 h-7 text-cyan-300" />
           </div>
         </div>
 
         {/* Middle Left - CPU Icon */}
-        <div className="absolute top-1/2 left-8 animate-float-fast opacity-15">
+        <div className="absolute top-1/2 left-2 md:left-8 animate-float-fast opacity-10 md:opacity-15">
           <div className="w-12 h-12 bg-gradient-to-br from-lime-400/20 to-blue-400/20 rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/10">
             <Cpu className="w-6 h-6 text-lime-300" />
           </div>
         </div>
 
         {/* Middle Right - Zap Icon */}
-        <div className="absolute top-1/3 right-12 animate-float-slow opacity-20">
+        <div className="absolute top-1/3 right-2 md:right-12 animate-float-slow opacity-10 md:opacity-20">
           <div className="w-18 h-18 bg-gradient-to-br from-yellow-400/20 to-blue-400/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10">
             <Zap className="w-9 h-9 text-yellow-300" />
           </div>
         </div>
 
         {/* Bottom Left - Globe Icon */}
-        <div className="absolute bottom-32 left-24 animate-float-medium opacity-25">
+        <div className="absolute bottom-32 left-4 md:left-24 animate-float-medium opacity-15 md:opacity-25">
           <div className="w-15 h-15 bg-gradient-to-br from-green-400/20 to-cyan-400/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/10">
             <Globe className="w-7 h-7 text-green-300" />
           </div>
         </div>
 
         {/* Bottom Right - Layers Icon */}
-        <div className="absolute bottom-40 right-16 animate-float-fast opacity-15">
+        <div className="absolute bottom-40 right-4 md:right-16 animate-float-fast opacity-10 md:opacity-15">
           <div className="w-13 h-13 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/10">
             <Layers className="w-6 h-6 text-purple-300" />
           </div>
         </div>
 
         {/* Additional smaller floating elements */}
-        <div className="absolute top-1/4 left-1/3 animate-float-slow opacity-10">
+        <div className="absolute top-1/4 left-1/4 md:left-1/3 animate-float-slow opacity-5 md:opacity-10">
           <div className="w-8 h-8 bg-gradient-to-br from-blue-400/30 to-cyan-300/30 rounded-full backdrop-blur-sm border border-white/20"></div>
         </div>
 
-        <div className="absolute bottom-1/4 right-1/3 animate-float-medium opacity-15">
+        <div className="absolute bottom-1/4 right-1/4 md:right-1/3 animate-float-medium opacity-8 md:opacity-15">
           <div className="w-6 h-6 bg-gradient-to-br from-lime-400/30 to-green-300/30 rounded-full backdrop-blur-sm border border-white/20"></div>
         </div>
 
-        <div className="absolute top-2/3 left-1/4 animate-float-fast opacity-12">
+        <div className="absolute top-2/3 left-1/6 md:left-1/4 animate-float-fast opacity-6 md:opacity-12">
           <div className="w-10 h-10 bg-gradient-to-br from-cyan-400/30 to-blue-300/30 rounded-full backdrop-blur-sm border border-white/20"></div>
         </div>
       </div>
@@ -278,7 +278,7 @@ function App() {
         </div>
       )}
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-6 relative">
+      <section className="min-h-screen flex items-center justify-center px-6 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <div className="mb-8">
             <h1 className="text-6xl md:text-8xl font-extralight mb-6 leading-none">
@@ -291,6 +291,19 @@ function App() {
             <p className="text-xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
               for your success.
             </p>
+            
+            {/* About content merged into hero */}
+            <div className="mt-12 mb-8">
+              <p className="text-lg text-slate-400 font-light leading-relaxed max-w-3xl mx-auto mb-8">
+                We are a cloud-based software startup dedicated to building innovative digital solutions that solve modern problems and revolutionize the way people work, learn, and connect.
+              </p>
+              
+              <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-500">
+                <div className="flex items-center gap-2"><Sparkles className="w-4 h-4 text-cyan-300" /> Innovation-driven</div>
+                <div className="flex items-center gap-2"><Code2 className="w-4 h-4 text-cyan-300" /> Cloud-native solutions</div>
+                <div className="flex items-center gap-2"><Users2 className="w-4 h-4 text-cyan-300" /> Community-focused</div>
+              </div>
+            </div>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
@@ -318,51 +331,12 @@ function App() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* Join Section */}
       <section id="about" className="py-32 px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           <div 
             data-animate
             className={`transition-all duration-1000 ${isVisible[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-          >
-            <h2 className="text-4xl md:text-5xl font-extralight mb-8 text-slate-200">
-              About <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">6Origin</span>
-            </h2>
-            <p className="text-xl text-slate-400 font-light leading-relaxed max-w-3xl mx-auto">
-              We are a cloud-based software startup dedicated to building innovative digital solutions that solve modern problems and revolutionize the way people work, learn, and connect.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-12 mt-20">
-            {[
-              { icon: Sparkles, title: "Innovation", desc: "Cutting-edge solutions for tomorrow" },
-              { icon: Code2, title: "Cloud-Native", desc: "Scalable, secure, and accessible" },
-              { icon: Users2, title: "Community", desc: "Built together, for everyone" }
-            ].map((item, index) => (
-              <div 
-                key={index}
-                data-animate
-                className={`transition-all duration-1000 delay-${index * 200} ${isVisible[index + 1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              >
-                <div className="group">
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <item.icon className="w-6 h-6 text-cyan-300" />
-                  </div>
-                  <h3 className="text-lg font-medium mb-2 text-slate-200">{item.title}</h3>
-                  <p className="text-slate-400 text-sm font-light">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Join Section */}
-      <section id="join" className="py-32 px-6 relative">
-        <div className="max-w-4xl mx-auto text-center">
-          <div 
-            data-animate
-            className={`transition-all duration-1000 ${isVisible[4] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             <h2 className="text-4xl md:text-5xl font-extralight mb-8 text-slate-200">
               Join Our <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Mission</span>
