@@ -278,7 +278,7 @@ function App() {
         </div>
       )}
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-6 relative z-10">
+      <section className="min-h-screen flex items-center justify-center px-6 relative z-10 pt-24 md:pt-32">
         <div className="text-center max-w-4xl mx-auto">
           <div className="mb-8">
             <h1 className="text-6xl md:text-8xl font-extralight mb-6 leading-none">
@@ -325,7 +325,7 @@ function App() {
             </button>
           </div>
 
-          <div className="animate-bounce">
+          <div className="animate-bounce mt-8">
             <ChevronDown className="w-6 h-6 text-slate-500 mx-auto" />
           </div>
         </div>
