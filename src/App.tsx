@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, Code2, Sparkles, Users2, Linkedin, Mail, ChevronDown, X, Menu } from 'lucide-react';
+import { ArrowRight, Code2, Sparkles, Users2, Linkedin, Mail, ChevronDown, X, Menu, Database, Cloud, Cpu, Zap, Globe, Layers } from 'lucide-react';
 
 function App() {
 
@@ -87,6 +87,64 @@ function App() {
         />
         <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-cyan-400/10 rounded-full blur-2xl animate-pulse" />
         <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-lime-400/10 rounded-full blur-3xl animate-pulse delay-1000" />
+      </div>
+
+      {/* Floating Objects */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        {/* Top Left - Database Icon */}
+        <div className="absolute top-20 left-16 animate-float-slow opacity-20">
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-400/20 to-cyan-300/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10">
+            <Database className="w-8 h-8 text-blue-300" />
+          </div>
+        </div>
+
+        {/* Top Right - Cloud Icon */}
+        <div className="absolute top-32 right-20 animate-float-medium opacity-25">
+          <div className="w-14 h-14 bg-gradient-to-br from-cyan-400/20 to-lime-300/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/10">
+            <Cloud className="w-7 h-7 text-cyan-300" />
+          </div>
+        </div>
+
+        {/* Middle Left - CPU Icon */}
+        <div className="absolute top-1/2 left-8 animate-float-fast opacity-15">
+          <div className="w-12 h-12 bg-gradient-to-br from-lime-400/20 to-blue-400/20 rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/10">
+            <Cpu className="w-6 h-6 text-lime-300" />
+          </div>
+        </div>
+
+        {/* Middle Right - Zap Icon */}
+        <div className="absolute top-1/3 right-12 animate-float-slow opacity-20">
+          <div className="w-18 h-18 bg-gradient-to-br from-yellow-400/20 to-blue-400/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10">
+            <Zap className="w-9 h-9 text-yellow-300" />
+          </div>
+        </div>
+
+        {/* Bottom Left - Globe Icon */}
+        <div className="absolute bottom-32 left-24 animate-float-medium opacity-25">
+          <div className="w-15 h-15 bg-gradient-to-br from-green-400/20 to-cyan-400/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/10">
+            <Globe className="w-7 h-7 text-green-300" />
+          </div>
+        </div>
+
+        {/* Bottom Right - Layers Icon */}
+        <div className="absolute bottom-40 right-16 animate-float-fast opacity-15">
+          <div className="w-13 h-13 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/10">
+            <Layers className="w-6 h-6 text-purple-300" />
+          </div>
+        </div>
+
+        {/* Additional smaller floating elements */}
+        <div className="absolute top-1/4 left-1/3 animate-float-slow opacity-10">
+          <div className="w-8 h-8 bg-gradient-to-br from-blue-400/30 to-cyan-300/30 rounded-full backdrop-blur-sm border border-white/20"></div>
+        </div>
+
+        <div className="absolute bottom-1/4 right-1/3 animate-float-medium opacity-15">
+          <div className="w-6 h-6 bg-gradient-to-br from-lime-400/30 to-green-300/30 rounded-full backdrop-blur-sm border border-white/20"></div>
+        </div>
+
+        <div className="absolute top-2/3 left-1/4 animate-float-fast opacity-12">
+          <div className="w-10 h-10 bg-gradient-to-br from-cyan-400/30 to-blue-300/30 rounded-full backdrop-blur-sm border border-white/20"></div>
+        </div>
       </div>
 
       {/* Mobile Dropdown Menu */}
