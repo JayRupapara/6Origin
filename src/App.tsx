@@ -332,11 +332,91 @@ function App() {
       </section>
 
       {/* Join Section */}
+      <section className="py-32 px-6 relative">
+        <div className="max-w-6xl mx-auto">
+          <div 
+            data-animate
+            className={`text-center mb-16 transition-all duration-1000 ${isVisible[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          >
+            <h2 className="text-4xl md:text-5xl font-extralight mb-8 text-slate-200">
+              Our <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Products</span>
+            </h2>
+            <p className="text-xl text-slate-400 font-light leading-relaxed max-w-2xl mx-auto">
+              Innovative solutions designed to transform your business operations
+            </p>
+          </div>
+
+          <div 
+            data-animate
+            className={`transition-all duration-1000 delay-300 ${isVisible[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          >
+            <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 md:p-12 hover:border-slate-600/50 transition-all duration-500 group">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="order-2 md:order-1">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 rounded-xl flex items-center justify-center border border-blue-400/30">
+                      <Sparkles className="w-6 h-6 text-blue-400" />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-light text-white">ProductInsight-AI</h3>
+                  </div>
+                  
+                  <p className="text-slate-300 text-lg leading-relaxed mb-8">
+                    An intelligent analytics platform that transforms raw product data into actionable insights. 
+                    Leverage AI-powered analytics to understand user behavior, optimize product performance, 
+                    and make data-driven decisions that drive growth.
+                  </p>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center gap-3 text-slate-400">
+                      <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                      <span>Real-time analytics and insights</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-slate-400">
+                      <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                      <span>AI-powered data visualization</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-slate-400">
+                      <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                      <span>Comprehensive reporting dashboard</span>
+                    </div>
+                  </div>
+                  
+                  <a 
+                    href="https://6origin-product-insight.vercel.app/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 group-hover:scale-105"
+                  >
+                    <span>View Live Demo</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+                
+                <div className="order-1 md:order-2">
+                  <div className="relative group">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="relative bg-slate-800/50 rounded-2xl p-4 border border-slate-700/50 overflow-hidden">
+                      <img 
+                        src="https://i.postimg.cc/Dz14xSr7/Screenshot-2025-07-25-115515.png" 
+                        alt="ProductInsight-AI Dashboard" 
+                        className="w-full h-auto rounded-lg shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent rounded-lg"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Join Section */}
       <section id="about" className="py-32 px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           <div 
             data-animate
-            className={`transition-all duration-1000 ${isVisible[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`transition-all duration-1000 ${isVisible[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             <h2 className="text-4xl md:text-5xl font-extralight mb-8 text-slate-200">
               Join Our <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Mission</span>
