@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, Code2, Sparkles, Users2, Linkedin, Mail, ChevronDown, X, Menu } from 'lucide-react';
+import { ArrowRight, Code2, Sparkles, Users2, Linkedin, Mail, ChevronDown, X, Menu, Database, Cloud, Cpu, Zap, Globe, Layers } from 'lucide-react';
 
 function App() {
 
@@ -87,6 +87,64 @@ function App() {
         />
         <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-cyan-400/10 rounded-full blur-2xl animate-pulse" />
         <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-lime-400/10 rounded-full blur-3xl animate-pulse delay-1000" />
+      </div>
+
+      {/* Floating Objects */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Top Left - Database Icon */}
+        <div className="absolute top-20 left-4 md:left-16 animate-float-slow opacity-15 md:opacity-20">
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-400/20 to-cyan-300/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10">
+            <Database className="w-8 h-8 text-blue-300" />
+          </div>
+        </div>
+
+        {/* Top Right - Cloud Icon */}
+        <div className="absolute top-32 right-4 md:right-20 animate-float-medium opacity-15 md:opacity-25">
+          <div className="w-14 h-14 bg-gradient-to-br from-cyan-400/20 to-lime-300/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/10">
+            <Cloud className="w-7 h-7 text-cyan-300" />
+          </div>
+        </div>
+
+        {/* Middle Left - CPU Icon */}
+        <div className="absolute top-1/2 left-2 md:left-8 animate-float-fast opacity-10 md:opacity-15">
+          <div className="w-12 h-12 bg-gradient-to-br from-lime-400/20 to-blue-400/20 rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/10">
+            <Cpu className="w-6 h-6 text-lime-300" />
+          </div>
+        </div>
+
+        {/* Middle Right - Zap Icon */}
+        <div className="absolute top-1/3 right-2 md:right-12 animate-float-slow opacity-10 md:opacity-20">
+          <div className="w-18 h-18 bg-gradient-to-br from-yellow-400/20 to-blue-400/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/10">
+            <Zap className="w-9 h-9 text-yellow-300" />
+          </div>
+        </div>
+
+        {/* Bottom Left - Globe Icon */}
+        <div className="absolute bottom-32 left-4 md:left-24 animate-float-medium opacity-15 md:opacity-25">
+          <div className="w-15 h-15 bg-gradient-to-br from-green-400/20 to-cyan-400/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/10">
+            <Globe className="w-7 h-7 text-green-300" />
+          </div>
+        </div>
+
+        {/* Bottom Right - Layers Icon */}
+        <div className="absolute bottom-40 right-4 md:right-16 animate-float-fast opacity-10 md:opacity-15">
+          <div className="w-13 h-13 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/10">
+            <Layers className="w-6 h-6 text-purple-300" />
+          </div>
+        </div>
+
+        {/* Additional smaller floating elements */}
+        <div className="absolute top-1/4 left-1/4 md:left-1/3 animate-float-slow opacity-5 md:opacity-10">
+          <div className="w-8 h-8 bg-gradient-to-br from-blue-400/30 to-cyan-300/30 rounded-full backdrop-blur-sm border border-white/20"></div>
+        </div>
+
+        <div className="absolute bottom-1/4 right-1/4 md:right-1/3 animate-float-medium opacity-8 md:opacity-15">
+          <div className="w-6 h-6 bg-gradient-to-br from-lime-400/30 to-green-300/30 rounded-full backdrop-blur-sm border border-white/20"></div>
+        </div>
+
+        <div className="absolute top-2/3 left-1/6 md:left-1/4 animate-float-fast opacity-6 md:opacity-12">
+          <div className="w-10 h-10 bg-gradient-to-br from-cyan-400/30 to-blue-300/30 rounded-full backdrop-blur-sm border border-white/20"></div>
+        </div>
       </div>
 
       {/* Mobile Dropdown Menu */}
@@ -220,7 +278,7 @@ function App() {
         </div>
       )}
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-6 relative">
+      <section className="min-h-screen flex items-center justify-center px-6 relative z-10 pt-24 md:pt-32">
         <div className="text-center max-w-4xl mx-auto">
           <div className="mb-8">
             <h1 className="text-6xl md:text-8xl font-extralight mb-6 leading-none">
@@ -233,6 +291,19 @@ function App() {
             <p className="text-xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
               for your success.
             </p>
+            
+            {/* About content merged into hero */}
+            <div className="mt-12 mb-8">
+              <p className="text-lg text-slate-400 font-light leading-relaxed max-w-3xl mx-auto mb-8">
+                We are a cloud-based software startup dedicated to building innovative digital solutions that solve modern problems and revolutionize the way people work, learn, and connect.
+              </p>
+              
+              <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-500">
+                <div className="flex items-center gap-2"><Sparkles className="w-4 h-4 text-cyan-300" /> Innovation-driven</div>
+                <div className="flex items-center gap-2"><Code2 className="w-4 h-4 text-cyan-300" /> Cloud-native solutions</div>
+                <div className="flex items-center gap-2"><Users2 className="w-4 h-4 text-cyan-300" /> Community-focused</div>
+              </div>
+            </div>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
@@ -254,57 +325,98 @@ function App() {
             </button>
           </div>
 
-          <div className="animate-bounce">
+          <div className="animate-bounce mt-8">
             <ChevronDown className="w-6 h-6 text-slate-500 mx-auto" />
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-32 px-6 relative">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Join Section */}
+      <section className="py-32 px-6 relative">
+        <div className="max-w-6xl mx-auto">
           <div 
             data-animate
-            className={`transition-all duration-1000 ${isVisible[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`text-center mb-16 transition-all duration-1000 ${isVisible[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             <h2 className="text-4xl md:text-5xl font-extralight mb-8 text-slate-200">
-              About <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">6Origin</span>
+              Our <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Products</span>
             </h2>
-            <p className="text-xl text-slate-400 font-light leading-relaxed max-w-3xl mx-auto">
-              We are a cloud-based software startup dedicated to building innovative digital solutions that solve modern problems and revolutionize the way people work, learn, and connect.
+            <p className="text-xl text-slate-400 font-light leading-relaxed max-w-2xl mx-auto">
+              Innovative solutions designed to transform your business operations
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12 mt-20">
-            {[
-              { icon: Sparkles, title: "Innovation", desc: "Cutting-edge solutions for tomorrow" },
-              { icon: Code2, title: "Cloud-Native", desc: "Scalable, secure, and accessible" },
-              { icon: Users2, title: "Community", desc: "Built together, for everyone" }
-            ].map((item, index) => (
-              <div 
-                key={index}
-                data-animate
-                className={`transition-all duration-1000 delay-${index * 200} ${isVisible[index + 1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              >
-                <div className="group">
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-400/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <item.icon className="w-6 h-6 text-cyan-300" />
+          <div 
+            data-animate
+            className={`transition-all duration-1000 delay-300 ${isVisible[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          >
+            <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 md:p-12 hover:border-slate-600/50 transition-all duration-500 group">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="order-2 md:order-1">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 rounded-xl flex items-center justify-center border border-blue-400/30">
+                      <Sparkles className="w-6 h-6 text-blue-400" />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-light text-white">ProductInsight-AI</h3>
                   </div>
-                  <h3 className="text-lg font-medium mb-2 text-slate-200">{item.title}</h3>
-                  <p className="text-slate-400 text-sm font-light">{item.desc}</p>
+                  
+                  <p className="text-slate-300 text-lg leading-relaxed mb-8">
+                    An intelligent analytics platform that transforms raw product data into actionable insights. 
+                    Leverage AI-powered analytics to understand user behavior, optimize product performance, 
+                    and make data-driven decisions that drive growth.
+                  </p>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center gap-3 text-slate-400">
+                      <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                      <span>Real-time analytics and insights</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-slate-400">
+                      <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                      <span>AI-powered data visualization</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-slate-400">
+                      <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                      <span>Comprehensive reporting dashboard</span>
+                    </div>
+                  </div>
+                  
+                  <a 
+                    href="https://6origin-product-insight.vercel.app/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 group-hover:scale-105"
+                  >
+                    <span>View Live Demo</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+                
+                <div className="order-1 md:order-2">
+                  <div className="relative group">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="relative bg-slate-800/50 rounded-2xl p-4 border border-slate-700/50 overflow-hidden">
+                      <img 
+                        src="https://i.postimg.cc/Dz14xSr7/Screenshot-2025-07-25-115515.png" 
+                        alt="ProductInsight-AI Dashboard" 
+                        className="w-full h-auto rounded-lg shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent rounded-lg"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Join Section */}
-      <section id="join" className="py-32 px-6 relative">
+      <section id="about" className="py-32 px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           <div 
             data-animate
-            className={`transition-all duration-1000 ${isVisible[4] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`transition-all duration-1000 ${isVisible[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             <h2 className="text-4xl md:text-5xl font-extralight mb-8 text-slate-200">
               Join Our <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Mission</span>
